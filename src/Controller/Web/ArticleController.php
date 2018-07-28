@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Web;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,8 +18,8 @@ class ArticleController extends AbstractController
 
         $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
 
-        return $this->render("article/articles.html.twig", [
-            'articles' => $articles,
+        return $this->render("article/article.html.twig", [
+            'articles' => $articles
         ]);
     }
 
