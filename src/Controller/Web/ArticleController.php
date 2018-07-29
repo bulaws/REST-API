@@ -9,7 +9,7 @@ use App\Entity\Article;
 class ArticleController extends AbstractController
 {
     /**
-     * Rendering bikeBlog page
+     * Rendering article page
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
