@@ -1,3 +1,3 @@
 article:
   path: /
-  controller: App\Controller\ArticleController::showArticles
+  controller: App\Controller\Web\ArticleController::showArticles
