@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if article %}
+    {% if articles %}
         <table  class="table table-striped">
             <thead>
             <tr>
@@ -11,15 +11,19 @@
             </tr>
             </thead>
             <tbody>
+            {% for article in articles %}
                 <tr>
                     <td>
-                        <a href="/bike-blog/{{ article.id }}"> {{ article.name }} </a>
+                        <a href="/articles/{{ article.id }}"> {{ article.name }} </a>
                     </td>
                     <td> {{ article.text }} </td>
                     <td> {{ article.updateAt|date('Y-m-d H:i') }} </td>
+                    <td><a href="/article/update/{{ article.id }}" class="btn btn-dark">Редагувати</a></td>
                 </tr>
+            {% endfor %}
             </tbody>
         </table>
+        <a href="/article/create" class="btn btn-light">Створити нову статтю</a>
     {% else %}
         <p>Статей не знайдено</p>
     {% endif %}

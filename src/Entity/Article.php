@@ -67,7 +67,7 @@ class Article
 
     public function setUpdateAt(\DateTimeInterface $updateAt): self
     {
-        $this->updateAt = $updateAt;
+        $this->updateAt = new \DateTime();
 
         return $this;
     }

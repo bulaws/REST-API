@@ -1,3 +1,17 @@
-article:
+articles:
   path: /
   controller: App\Controller\Web\ArticleController::showArticles
+
+article:
+  path: /articles/{id}
+  controller: App\Controller\Web\ArticleController::showArticle
+  requirements:
+    page: '\d+'
+
+createArticle:
+  path: /article/create
+  controller: App\Controller\Web\ArticleController::createArticle
+
+updateArticle:
+  path: /article/update/{article}
+  controller: App\Controller\Web\ArticleController::updateArticle
