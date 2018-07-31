@@ -6,6 +6,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\View\View;
 use App\Entity\Article;
 
 class ArticleController extends FosRestController
@@ -32,15 +33,17 @@ class ArticleController extends FosRestController
     }
 
     /**
-     * @param Request $request
+     * @param  $id
      * @return \FOS\RestBundle\View\View
      *
-     * @Rest\GET("/article/{id}")
+     * @Rest\Get("/article/{id}")
      */
-    public function getArticle(Request $request, $id): View
+    public function getArticle(int $id): View
     {
 
-        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findOneById($id);
 
         return View::create($article, Response::HTTP_OK);
     }
